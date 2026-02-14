@@ -1,0 +1,27 @@
+---
+- name: Deploy Docker Container
+  hosts: worker
+  become: yes
+
+  tasks:
+
+    - name: Remove old container
+      docker_container:
+        name: myapp
+        state: absent
+      ignore_errors: yes
+
+    - name: Remove old image
+      docker_image:
+        name: yourdockerhubusername/myapp
+        tag: latest
+        state: absent
+      ignore_errors: yes
+
+    - name: Run new container
+      docker_container:
+        name: myapp
+        image: yourdockerhubusername/myapp:latest
+        state: started
+        ports:
+          - "8085:8085"
