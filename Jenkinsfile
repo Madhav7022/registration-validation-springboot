@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "yourdockerhubusername/myapp"
+        IMAGE_NAME = "madhav7022/spring_project2003"
         TAG = "latest"
     }
 
