@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "madhav7022/spring_project2003"
-        TAG = "latest"
+        TAG = "v1"
     }
 
     stages {
