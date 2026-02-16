@@ -13,15 +13,21 @@
 
     - name: Remove old image
       docker_image:
-        name: yourdockerhubusername/myapp
-        tag: latest
+        name: madhav7022/spring_project2003
+        tag: v1
         state: absent
       ignore_errors: yes
+
+    - name: Pull latest image
+      docker_image:
+        name: madhav7022/spring_project2003
+        tag: v1
+        source: pull
 
     - name: Run new container
       docker_container:
         name: myapp
-        image: yourdockerhubusername/myapp:latest
+        image: madhav7022/spring_project2003:v1
         state: started
         ports:
           - "8085:8085"
